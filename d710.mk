@@ -62,13 +62,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
 
 # Net
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/ip-up:system/etc/ppp/ip-up \
-    $(LOCAL_PATH)/configs/ip-down:system/etc/ppp/ip-down
+#PRODUCT_COPY_FILES += \
+    #$(LOCAL_PATH)/configs/ip-up:system/etc/ppp/ip-up \
+    #$(LOCAL_PATH)/configs/ip-down:system/etc/ppp/ip-down
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/configs/sirfgps.conf:system/etc/sirfgps.conf
+#PRODUCT_COPY_FILES += \
+    #$(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
+    #$(LOCAL_PATH)/configs/sirfgps.conf:system/etc/sirfgps.conf
         
 # These are the hardware-specific settings that are stored in system properties.
 # Note that the only such settings should be the ones that are too low-level to
