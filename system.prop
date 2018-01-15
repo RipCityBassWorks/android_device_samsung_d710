@@ -1,8 +1,9 @@
 #
-# system.prop for i9100
+# system.prop for d710
 #
 
-rild.libpath=/system/lib/libsecril-shim.so
+# rild.libpath=/system/lib/libsecril-shim.so
+rild.libpath=/system/lib/libsec-ril40.so
 rild.libargs=-d /dev/ttyS0
 ro.ril.telephony.mqanelements=5
 
@@ -13,3 +14,9 @@ ro.vold.primary_physical=1
 
 # EGL blobs crash on screen off
 ro.egl.destroy_after_detach=true
+
+ro.com.google.clientidbase=android-sprint-us
+ro.cdma.home.operator.numeric=310120
+ro.cdma.home.operator.alpha=Sprint
+net.cdma.pppd.user=user[SPACE]SprintNextel
+ro.carrier=Sprint
