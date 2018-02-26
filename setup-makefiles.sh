@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export DEVICE_COMMON=galaxys2-common
-export DEVICE=i9100
+export DEVICE=d710
 export VENDOR=samsung
 
 OUTDIR=vendor/$VENDOR/$DEVICE
