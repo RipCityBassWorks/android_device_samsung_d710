@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-$(LOCAL_DIR)/full_i9100.mk
+$(LOCAL_DIR)/full_d710.mk
