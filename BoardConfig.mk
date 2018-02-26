@@ -29,7 +29,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/d710/bluetooth
 
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
-TARGET_KERNEL_CONFIG := lineageos_i9100_defconfig
+TARGET_KERNEL_CONFIG := cm_d710_defconfig
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := galaxys2,epic4gtouch,SPH-D710,d710,smdk4210,SPH-D710VMUB,SPH-D710BST
