@@ -17,7 +17,7 @@
 # Include common makefile
 $(call inherit-product, device/samsung/galaxys2-common/common.mk)
 
-LOCAL_PATH := device/samsung/i9100
+LOCAL_PATH := device/samsung/d710
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -37,6 +37,10 @@ PRODUCT_PACKAGES +=  libstlport
 PRODUCT_PACKAGES += \
     sensors.exynos4
 
+# These are the hardware-specific features
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
+
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
@@ -52,5 +56,27 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/usr/idc/melfas_ts.idc:system/usr/idc/melfas_ts.idc \
     $(LOCAL_PATH)/usr/idc/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc \
     $(LOCAL_PATH)/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
+    
+    # Net
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/ip-up:system/etc/ppp/ip-up \
+    $(LOCAL_PATH)/configs/ip-down:system/etc/ppp/ip-down
 
-$(call inherit-product-if-exists, vendor/samsung/i9100/i9100-vendor.mk)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
+$(LOCAL_PATH)/configs/sirfgps.conf:system/etc/sirfgps.conf
+
+# Telephony property for CDMA
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.default_network=4 \
+    net.cdma.pppd.authtype=require-pap \
+    net.cdma.datalinkinterface=/dev/ttyCDMA0 \
+    net.interfaces.defaultroute=cdma \
+    net.cdma.ppp.interface=ppp0 \
+    ro.wimax.interface=uwbr0 \
+    net.connectivity.type=CDMA1 \
+    mobiledata.interfaces=ppp0,wlan0,uwbr0 \
+    ro.telephony.ril_class=SamsungCDMAv6RIL \
+    ro.ril.samsung_cdma=true
+    
+$(call inherit-product-if-exists, vendor/samsung/d710/d710-vendor.mk)
